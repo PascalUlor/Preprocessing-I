@@ -58,8 +58,28 @@ html, body {
     height: 100%;
 }
 
+// font styles
+h1, h2, h3, h4, h5 {
+	font-family: 'Bangers', cursive;
+	letter-spacing: 1px;
+	margin-bottom: 15px;
+}
+// font sizes
+@xLargeFontSize: 2rem;
+@largeFontSize: 1.5rem;
+@mediumFontSize: 1rem;
+@smallFontSize: .5rem;
+
+// Layout and colors
 @marginDefault: 0 auto;
 @mainColor: #b3aeaf;
+@secondaryColor: #ffffff;
+@borderStyle: 2px solid black;
+
+// breakpoints
+@mobileBreakpoint: 500px;
+@tabletBreakpoint: 750px;
+
 .flex-style(@justifyContent, @alignItem) {
     display: flex;
     align-items: @alignItem;
@@ -69,7 +89,6 @@ html, body {
   .container {
 	  margin: @marginDefault;
 	  width: 60rem;
-	  border: 2px solid black;
   }
 
   header {
@@ -86,16 +105,107 @@ nav {
 		color: #ada8a8;
 		&:hover {
 			color: #000;
-			border-bottom: 1px solid #000;
+			border-bottom: @borderStyle;
 		}
 	}
 }
 
 .main-content {
 	.flex-style(center, center);
+	flex-direction: column;
 	margin: @marginDefault;
 	height: 40rem;
 	background-color: @mainColor;
 	border-radius: 2%;
+	.image-section {
+		// .flex-style(center, center);
+		display: flex;
+		.main-text {
+			font-size: 85px;
+			text-align: center;
+			width: 50%;
+		}
+		.image-fit {
+			border: @borderStyle;
+			width: 15rem;
+			height: 15rem;
+			img {
+				width: 100%;
+				height: 100%;
+			}
+		}
+	}
+	
 }
+.into-text {
+	padding: 10rem;
+	margin: @marginDefault;
+	border-bottom: @borderStyle;
+	h1 {
+		font-size: @largeFontSize;
+	}
+	p {
+		font-size: @smallFontSize;
+	}
+}
+
+/* cards */
+
+.card-section {
+	.flex-style(space-between, center);
+	flex-direction: column;
+	margin: 10px;
+	padding: 10px;
+}
+
+
+
+.card-row {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	margin: 10px;
+	width: 104%;
+	.card {
+		border: 1px solid black;
+		width: 48%;
+		margin-top: 10px;
+		padding: 10px;
+		background-color: rgb(238, 237, 237);
+		h2 {
+			font-size: @mediumFontSize;
+		}
+	}
+}
+
+.card button {
+	border-radius: 8%;
+	font-size: 10px;
+}
+
+.about-services {
+	display: flex;
+	justify-content: space-between;
+	margin: 25px;
+	width: 96%
+}
+
+.about-services p {
+	width: 85%
+}
+
+
+
+
+footer {
+	padding: 10px;
+	background-color: @mainColor;
+	.last-text {
+		text-align: center;
+		small {
+			color: @secondaryColor;
+		}
+	}
+}
+
 
