@@ -58,3 +58,44 @@ html, body {
     height: 100%;
 }
 
+@marginDefault: 0 auto;
+@mainColor: #b3aeaf;
+.flex-style(@justifyContent, @alignItem) {
+    display: flex;
+    align-items: @alignItem;
+    justify-content: @justifyContent;
+  }
+
+  .container {
+	  margin: @marginDefault;
+	  width: 60rem;
+	  border: 2px solid black;
+  }
+
+  header {
+    .flex-style(flex-end, center);
+    padding: 10px;
+    z-index: 1;
+}
+nav {
+	.flex-style(space-between, flex-end);
+	a {
+		padding: 15px 15px 15px 0;
+		margin: 2rem 0 2rem 3rem;
+		text-decoration: none;
+		color: #ada8a8;
+		&:hover {
+			color: #000;
+			border-bottom: 1px solid #000;
+		}
+	}
+}
+
+.main-content {
+	.flex-style(center, center);
+	margin: @marginDefault;
+	height: 40rem;
+	background-color: @mainColor;
+	border-radius: 2%;
+}
+
