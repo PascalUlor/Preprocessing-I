@@ -94,6 +94,13 @@ h1, h2, h3, h4, h5 {
 		padding: 20px;
         margin: 0 auto;
 	  }
+
+	  @media(max-width: @mobileBreakpoint) {
+		.flex-style(center, center, column);
+		padding: 20px;
+		margin: 0 auto;
+		width: 48rem;
+	  }
   }
 
   header {
@@ -117,7 +124,15 @@ h1, h2, h3, h4, h5 {
 	  
 	  @media(max-width: @mobileBreakpoint) {
 		// flex-direction: column;
-		
+		padding: 20px;
+        position: static;
+        margin-top: -19px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        flex-shrink: inherit;
+        width: 101%;
+        flex-direction: column;
 	  }
 }
 nav {
@@ -128,7 +143,9 @@ nav {
 	  }
 	  
 	@media(max-width: @mobileBreakpoint) {
-		flex-direction: column;
+		.flex-style(space-between, center, column);
+        height: 3rem;
+        width: 43rem;
 	  }
 	a {
 		padding: 15px 15px 15px 0;
@@ -146,7 +163,13 @@ nav {
 		  }
 		  
 		@media(max-width: @mobileBreakpoint) {
-			flex-direction: column;
+			// flex-direction: column;
+			padding: 20px 15px 20px 0;
+        	margin: 0 2rem;
+        	border-bottom: 1px solid rgb(179, 174, 174);
+        	font-size: 2rem;
+        	width: 50rem;
+        	text-align: center;
 		  }
 	}
 }
@@ -165,6 +188,12 @@ nav {
   
 	@media(max-width: @mobileBreakpoint) {
 	// flex-direction: column-reverse;
+		display: flex;
+    	flex-direction: column;
+    	justify-content: center;
+    	margin-top: 18rem;
+    	flex-shrink: inherit;
+    	margin-right: -1rem;
   	}
 	.image-section {
 		.flex-style(flex-start, center, column);
@@ -187,7 +216,7 @@ nav {
 		
 		  @media(max-width: @mobileBreakpoint) {
 		//   flex-direction: column;
-		
+			display: none;
 			}
 		}
 		.image-fit {
@@ -200,10 +229,14 @@ nav {
 		
 		  @media(max-width: @mobileBreakpoint) {
 		//   flex-direction: column;
+			width: 25rem;
+			height: 22rem;
+			margin: 2rem auto;
 			}
 			img {
 				width: 100%;
 				height: 100%;
+				border-radius: 5%;
 				@media(max-width: @tabletBreakpoint) {
 		
 				}
@@ -227,13 +260,27 @@ nav {
 	}
 
   @media(max-width: @mobileBreakpoint) {
-	  
+	padding: 2rem;
 	}
 	h1 {
 		font-size: @largeFontSize;
+		@media(max-width: @tabletBreakpoint) {
+		font-size: @xLargeFontSize;
+		}
+	
+	  @media(max-width: @mobileBreakpoint) {
+		font-size: @xLargeFontSize;
+		}
 	}
 	p {
 		font-size: @mediumFontSize;
+		@media(max-width: @tabletBreakpoint) {
+			font-size: @largeFontSize;
+			}
+		
+		  @media(max-width: @mobileBreakpoint) {
+			font-size: @largeFontSize;
+			}
 	}
 }
 
@@ -245,17 +292,16 @@ nav {
 	margin: 10px;
 	padding: 10px;
 	.card-row {
-		display: flex;
-		justify-content: space-around;
+		.flex-style(space-around, center, row);
 		flex-wrap: wrap;
 		margin: 10px;
 		width: 104%;
 		@media(max-width: @tabletBreakpoint) {
-			flex-direction: row-reverse;
+			.flex-style(space-around, center, column);
 		  }
 		  
 		@media(max-width: @mobileBreakpoint) {
-			flex-direction: column;
+			.flex-style(space-around, center, column);
 		  }
 		.card {
 			border: 1px solid black;
@@ -263,8 +309,37 @@ nav {
 			margin-top: 10px;
 			padding: 10px;
 			background-color: rgb(238, 237, 237);
+			@media(max-width: @tabletBreakpoint) {
+				// flex-direction: row-reverse;
+				width: 100%;
+				margin-top: 10px;
+			  }
+			  
+			@media(max-width: @mobileBreakpoint) {
+				// flex-direction: column;
+				width: 100%;
+				margin-top: 10px;
+			  }
 			h2 {
 				font-size: @mediumFontSize;
+				@media(max-width: @tabletBreakpoint) {
+					font-size: @xLargeFontSize;
+					}
+				
+				  @media(max-width: @mobileBreakpoint) {
+					font-size: @xLargeFontSize;
+					}
+			}
+
+			li {
+				font-size: @mediumFontSize;
+				@media(max-width: @tabletBreakpoint) {
+					font-size: @largeFontSize;
+					}
+				
+				  @media(max-width: @mobileBreakpoint) {
+					font-size: @largeFontSize;
+					}
 			}
 		}
 	}
@@ -281,6 +356,15 @@ nav {
 footer {
 	padding: 10px;
 	background-color: @mainColor;
+	@media(max-width: @tabletBreakpoint) {
+		margin: auto;
+    	width: 40rem;
+		}
+	
+	@media(max-width: @mobileBreakpoint) {
+		margin: auto;
+    	width: 40rem;
+		}
 	.last-text {
 		text-align: center;
 		small {
